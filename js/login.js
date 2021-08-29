@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("btnLogin").addEventListener("click", myFunction)
-
+//login con google codigo ewpico sarpe
     function myFunction() {
         var usuario = document.getElementById("imputUser").value
         var contrasenia = document.getElementById("imputPass").value
