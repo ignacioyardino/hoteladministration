@@ -1,60 +1,86 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-<html lang="en">
+<html lang="es">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+	<script src="js/init.js"></script>
+	<script src="js/login.js"></script>
 
-  <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    html, body{
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #ffffff;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>
+	<title>eMercado - Iniciar sesión</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="Login_v15/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/vendor/bootstrap/css/bootstrap.min.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/vendor/animate/animate.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/vendor/css-hamburgers/hamburgers.min.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/vendor/animsition/css/animsition.min.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/vendor/select2/select2.min.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/vendor/daterangepicker/daterangepicker.css">
+	<!--=============================================Login_v15/==================================================-->
+	<link rel="stylesheet" type="text/css" href="Login_v15/css/util.css">
+	<link rel="stylesheet" type="text/css" href="Login_v15/css/main.css">
+	<!--===============================================================================================-->
 </head>
 
-<body class="text-center">
-<div class="container p-5">
-  <body class="text-center">
-  <form class="form-signin">
-    <img class="mb-4" src="img/logojap.png" >
-   <h1 class="h3 mb-3 font-weigth-normal">Iniciar sesión</h1>
-      <label for="inputEmail" class="sr-only">Correo electrónico</label>
-      <input type="email"  id="inputEmail" class="form-control" placeholder="Correo electrónico" requeried autofocus>
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>  
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
-      </form>
-      <button id="login" class="btn btn-lg btn-primary btn-block" type="button">Iniciar sesión</button>
-  </body>
+<body>
 
-</div>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url('Login_v15/images/logoecom.png')">
+
+				</div>
+
+				<div class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Usuario</span>
+						<input id="imputUser" class="input100" type="text" name="username" placeholder="Usuario">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+						<span class="label-input100">Contraseña</span>
+						<input id="imputPass" class="input100" type="password" name="pass" placeholder="Contraseña">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button id="btnlogin" class="login100-form-btn">
+							Iniciar sesión
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--===============================================================================================-->
+	<script src="Login_v15/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--=============Login_v15/==================================================================================-->
+	<script src="Login_v15/vendor/animsition/js/animsition.min.js"></script>
+	<!--=============Login_v15/==================================================================================-->
+	<script src="Login_v15/vendor/bootstrap/js/popper.js"></script>
+	<script src="Login_v15/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--=============Login_v15/==================================================================================-->
+	<script src="Login_v15/vendor/select2/select2.min.js"></script>
+	<!--=============Login_v15/==================================================================================-->
+	<script src="Login_v15/vendor/daterangepicker/moment.min.js"></script>
+	<script src="Login_v15/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--=============Login_v15/==================================================================================-->
+	<script src="Login_v15/vendor/countdowntime/countdowntime.js"></script>
+	<!--=============Login_v15/==================================================================================-->
+	
+
+</body>
 
 </html>
