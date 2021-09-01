@@ -1,12 +1,12 @@
-const ORDER_ASC_BY_NAME = "AZ";
-const ORDER_DESC_BY_NAME = "ZA";
-const ORDER_BY_PROD_COUNT = "Cant.";
+const ORDER_ASC_BY_NAME = "Menor a mayor";
+const ORDER_DESC_BY_NAME = "Mayor a menor";
+const ORDER_BY_PROD_COUNT = "Relevancia";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 var botonCliqueado = false;
-function sortCategories(criteria, array) {
+function sortProducts(criteria, array) {
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME) {
         result = array.sort(function (a, b) {
@@ -90,7 +90,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
         currentProductsArray = categoriesArray;
     }
 
-    currentProductsArray = sortCategories(currentSortCriteria, currentProductsArray);
+    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
     //Muestro las categorías ordenadas
     showProductsList();
