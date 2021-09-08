@@ -68,14 +68,61 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
             let htmlContentToAppend = "";
+            var estrellas = "";
             for (let i = 0; i < comentarios.length; i++) {
-                htmlContentToAppend +=`
-                <div class="border border-primary px-3" style="padding-top: 10px;padding-bottom: 10px;margin-bottom:10px;">
+                if (comentarios[i].score == "1") {
+                    estrellas = `
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>`;
+
+                }
+                if (comentarios[i].score == "2") {
+                    estrellas = `
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>`;
+                }
+                if (comentarios[i].score == "3") {
+                    estrellas = `
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>`;
+                }
+                if (comentarios[i].score == "4") {
+                    estrellas = `
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>`;
+                }
+                if (comentarios[i].score == "5") {
+                    estrellas = `
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>`;
+                }
+
+
+                htmlContentToAppend += `
+                <div class=" px-3" style="padding-top: 10px;padding-bottom: 10px;margin-bottom:10px; border-width: 0.10px;
+                border-style: solid;
+                border-color: orange;">
                     <h4>`+ comentarios[i].user + `</h4>
                     <p>`+ comentarios[i].description + `</p>
-                    <p>`+ comentarios[i].score + `</p>
+                    <p>`+ estrellas + `</p>
                     <small>`+ comentarios[i].dateTime + `</small>
-                </div>`
+                </div>`;
+                estrellas = "";
             }
             document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 
