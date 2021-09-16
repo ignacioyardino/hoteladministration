@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
                productNameHTML.innerHTML = product.name;
                productDescriptionHTML.innerHTML = product.description;
                productCountHTML.innerHTML = product.soldCount; */
-
             //let comentarioUser = document.getElementById("comentario-user");
             //let comentarioComentario = document.getElementById("comentario-comentario");
             //let comentarioScore = document.getElementById("comentario-score");
