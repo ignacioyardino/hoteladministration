@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
             document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 
-
+       
         }
     });
 });
