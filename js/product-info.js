@@ -126,8 +126,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
             document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 
-            /* //Muestro las imagenes en forma de galería
-            showImagesGallery(product.images); */
+       
         }
     });
 });
