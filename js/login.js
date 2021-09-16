@@ -14,17 +14,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
         } else if (usuario == "" && contrasenia == "") {
             alert("Debe colocar usaurio y contraseña.")
         } else if (usuario != "" && contrasenia != "") {
-           
-            localStorage.setItem('USUARIO', usuario );
-            localStorage.setItem('CONTRASENIA', contrasenia );
-      
-         
-          window.location.href = "home.html"
 
-       
+            localStorage.setItem('USUARIO', usuario);
+            localStorage.setItem('CONTRASENIA', contrasenia);
+
+
+            window.location.href = "home.html"
+
+
         }
 
     }
 
 });
- 
