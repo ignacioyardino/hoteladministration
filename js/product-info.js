@@ -125,7 +125,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
             document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 
-       
+            $("#btn-enviar").click(function () {
+
+                var nombreUsuario = $('#Comentar').val();
+                document.getElementById("comentariosNuevos").innerHTML += nombreUsuario;
+            });
+          
         }
     });
 });
