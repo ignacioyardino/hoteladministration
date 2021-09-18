@@ -122,13 +122,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
                     <small>`+ comentarios[i].dateTime + `</small>
                 </div>`;
                 estrellas = "";
+                
             }
             document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 
             $("#btn-enviar").click(function () {
 
-                var nombreUsuario = $('#Comentar').val();
-                document.getElementById("comentariosNuevos").innerHTML += nombreUsuario;
+                var comentarioNew = $('#Comentar').val();
+                document.getElementById("comentariosNuevos").innerHTML = comentarioNew;
             });
           
         }
