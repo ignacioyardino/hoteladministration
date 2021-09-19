@@ -43,7 +43,7 @@ function dibujoComentariosNuevos() {
 function dibujoBloquePrincipalHTML() {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            product = resultObj.data; //EL RESULKTADO DEL JSON LO GUARDO EN UNA VARIABLE DEL PRODUCTO
+            product = resultObj.data; //EL RESULTADO DEL JSON LO GUARDO EN UNA VARIABLE DEL PRODUCTO
             //
             //DIBUJO PARTE PRINCIPAL DEL HTML
             let productNameHTML = document.getElementById("productName");
