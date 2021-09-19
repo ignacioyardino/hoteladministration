@@ -30,6 +30,7 @@ function dibujoComentariosNuevos() {
             <small>`+ fecha + `</small>
             </div>`;
         document.getElementById("comentarios").innerHTML = comentariosAtiguos + newComment;
+        //RESETEAR VARIABLE / RESETEO CAMPOS
         $('#comentario').val("");
         $("input[type=radio][name=radio-puntuacion]").prop('checked', false);
         estrellas = "";
