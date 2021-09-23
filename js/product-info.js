@@ -2,6 +2,9 @@ var product = {};
 var comentarios = {};
 var estrellas = "";
 var newComment = "";
+var arrayProductosRelacionados = {};
+var arrayTodosLosProductos = {};
+
 
 //
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -56,6 +59,8 @@ function dibujoBloquePrincipalHTML() {
             productCountHTML.innerHTML = product.soldCount;
             costoProductoHTML.innerHTML = product.cost;
             //
+            guardoProductosRelacionados(product.relatedProducts);
+
             dibujoGaleriaImagenes(product.images);
         }
     });
@@ -74,6 +79,44 @@ function dibujoGaleriaImagenes(productImages) {
         `;
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
+}
+
+function guardoProductosRelacionados(productosRelacionados) {
+
+    arrayProductosRelacionados = productosRelacionados;
+
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            var htmlContentToAppend = "";
+            arrayTodosLosProductos = resultObj.data; 
+            for (var i = 0; i < arrayProductosRelacionados.length; i++) { // cada valor de este for recorre el otro for
+
+                for (var j = 0; j < arrayTodosLosProductos.length; j++) {
+                    if (arrayProductosRelacionados[i] == j) {
+                        console.log(arrayTodosLosProductos[j]);
+
+                        htmlContentToAppend += `
+                            <div class="  col-md-4 mb-4">
+                                <div class="card h-100 border-0">
+                                    <div class="card-img-top">
+                                        <img src="`+ arrayTodosLosProductos[j].imgSrc+ `" class="img-fluid mx-auto d-block" alt="Card image cap">
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">
+                                            <a href="#" class=" font-weight-bold text-dark text-uppercase small"> `+arrayTodosLosProductos[j].name+`</a>
+                                        </h4>
+                                        <h5 class="card-price small text-warning">
+                                            <i><h3>`+arrayTodosLosProductos[j].cost+ `</h3>`+arrayTodosLosProductos[j].currency+`</i>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>`;
+                    }
+                }
+            }
+            document.getElementById("contenedor-productos-relaciomados").innerHTML = htmlContentToAppend;
+        }
+    });
 }
 
 function dibujoEstrellas(score, estrellas) {
