@@ -105,7 +105,7 @@ function guardoProductosRelacionados(productosRelacionados) {
                                         </h4>
                                         <h5 class="card-price small text-warning">
                                             <i><h3>`+ arrayTodosLosProductos[j].cost + `</h3>` + arrayTodosLosProductos[j].currency + `</i>
-                                        </h4>
+                                        </h5>
                                     </div>
                                 </div>
                             </div>`;
