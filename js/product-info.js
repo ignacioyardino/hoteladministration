@@ -88,7 +88,7 @@ function guardoProductosRelacionados(productosRelacionados) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             var htmlContentToAppend = "";
-            arrayTodosLosProductos = resultObj.data; 
+            arrayTodosLosProductos = resultObj.data;
             for (var i = 0; i < arrayProductosRelacionados.length; i++) { // cada valor de este for recorre el otro for
 
                 for (var j = 0; j < arrayTodosLosProductos.length; j++) {
@@ -96,18 +96,16 @@ function guardoProductosRelacionados(productosRelacionados) {
                         console.log(arrayTodosLosProductos[j]);
 
                         htmlContentToAppend += `
-                            <div class="  col-md-4 mb-4">
-                                <div class="card h-100 border-0">
-                                    <div class="card-img-top">
-                                        <img src="`+ arrayTodosLosProductos[j].imgSrc+ `" class="img-fluid mx-auto d-block" alt="Card image cap">
-                                    </div>
+                           <div class="col-sm-4 col-md-3">
+                               <div class="card-img-top">
+                                        <img src="`+ arrayTodosLosProductos[j].imgSrc + `" class="img-fluid mx-auto d-block" alt="Card image cap">
                                     <div class="card-body text-center">
                                         <h4 class="card-title">
-                                            <a href="#" class=" font-weight-bold text-dark text-uppercase small"> `+arrayTodosLosProductos[j].name+`</a>
+                                            <a href="#" class=" font-weight-bold text-dark text-uppercase small"> `+ arrayTodosLosProductos[j].name + `</a>
                                         </h4>
                                         <h5 class="card-price small text-warning">
-                                            <i><h3>`+arrayTodosLosProductos[j].cost+ `</h3>`+arrayTodosLosProductos[j].currency+`</i>
-                                        </h5>
+                                            <i><h3>`+ arrayTodosLosProductos[j].cost + `</h4>` + arrayTodosLosProductos[j].currency + `</i>
+                                        </h4>
                                     </div>
                                 </div>
                             </div>`;
