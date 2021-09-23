@@ -104,7 +104,7 @@ function guardoProductosRelacionados(productosRelacionados) {
                                             <a href="#" class=" font-weight-bold text-dark text-uppercase small"> `+ arrayTodosLosProductos[j].name + `</a>
                                         </h4>
                                         <h5 class="card-price small text-warning">
-                                            <i><h3>`+ arrayTodosLosProductos[j].cost + `</h4>` + arrayTodosLosProductos[j].currency + `</i>
+                                            <i><h3>`+ arrayTodosLosProductos[j].cost + `</h3>` + arrayTodosLosProductos[j].currency + `</i>
                                         </h4>
                                     </div>
                                 </div>
