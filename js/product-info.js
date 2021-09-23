@@ -112,7 +112,7 @@ function guardoProductosRelacionados(productosRelacionados) {
                     }
                 }
             }
-            document.getElementById("contenedor-productos-relaciomados").innerHTML = htmlContentToAppend;
+            document.getElementById("contenedor-productos-relacionados").innerHTML = htmlContentToAppend;
         }
     });
 }
