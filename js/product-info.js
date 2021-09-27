@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 ///
 function dibujoComentariosNuevos() {
-    var comentariosAtiguos = document.getElementById("comentarios").innerHTML;
+    var comentariosAntiguos = document.getElementById("comentarios").innerHTML;
     if ($("input[name='radio-puntuacion']:checked").val()) {
         var score = document.querySelector('input[name="radio-puntuacion"]:checked').value;
         estrellas = dibujoEstrellas(score, estrellas);
@@ -32,7 +32,7 @@ function dibujoComentariosNuevos() {
             <p>`+ estrellas + `</p>
             <small>`+ fecha + `</small>
             </div>`;
-        document.getElementById("comentarios").innerHTML = comentariosAtiguos + newComment;
+        document.getElementById("comentarios").innerHTML = comentariosAntiguos + newComment;
         //RESETEAR VARIABLE / RESETEO CAMPOS
         $('#comentario').val("");
         $("input[type=radio][name=radio-puntuacion]").prop('checked', false);
