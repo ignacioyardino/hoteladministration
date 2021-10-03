@@ -3,139 +3,155 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <script src="js/consulta-usuario.js"></script>
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <script src="js/consulta-usuario.js"></script>
+    <title>eMercado - Todo lo que busques está aquí</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-  <div id="contenedordelnav"></div>
-  <main role="main">
-    <div class="container mt-5">
-      <div class="text-center p-4">
+    <div id="contenedordelnav"></div>
+    <br>
+    <br>
+    <main role="main">
+        <div class="row">
+            <div class="col-sm-5 col-md-6">
+                <div class="container mt-5">
+                    <div class="text-center p-4">
+                        <h1 id="productName" class="text-danger display-4"></h1>
+                    </div>
+                    <h3 id="productName"></h3>
+                    <hr class="my-3">
+                    <dl>
+                        <dt>Descripción</dt>
+                        <dd>
+                            <p id="productDescription"></p>
+                        </dd>
+                        <dt>Cantidad de artículos vendidos</dt>
+                        <dd>
+                            <p id="productCount"></p>
+                        </dd>
+                        <dt>Precio</dt>
+                        <dd>
+                            <p id="costoProducto"></p>
+                        </dd>
 
-        <h1 id="productName" class="text-danger display-4"></h1>
+                        <dd>
+                            <div class="row text-center text-lg-left pt-2" id="productImagesGallery"></div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                <!---->
+                <div class="container">
+                    <div class="row">
+                     
+                        <div class="col">
+                            <div id="demo" class="carousel slide" data-ride="carousel">
 
-      </div>
-      <h3 id="productName"></h3>
-      <hr class="my-3">
-      <dl>
-        <dt>Descripción</dt>
-        <dd>
-          <p id="productDescription"></p>
-        </dd>
 
-        <dt>Cantidad de artículos vendidos</dt>
-        <dd>
-          <p id="productCount"></p>
-        </dd>
 
-        <dt>Precio</dt>
-        <dd>
-          <p id="costoProducto"></p>
-        </dd>
 
-        <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
-        </dd>
-      </dl>
-    </div>
+                                <!-- The slideshow -->
+                                <div class="carousel-inner flexbox" id="carrusel-contenedor">
 
-    <section class="pt-5 pb-5">
-      <div class="container">
-        <h2 class="text-lg-left font-weight-bold mb-3 mt-3">Productos relacionados</h2>
-        <div class="row d-flex equal" id="contenedor-productos-relacionados">  
+
+                                </div>
+
+                                <!-- Left and right controls -->
+                                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#demo" data-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </a>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div>
+                <!---->
+            </div>
         </div>
-      </div>
-    </section>
-
-    <div id="comentarios" class="container mt-5"></div>
-
-    <div class="container mt-5">
 
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="radio-puntuacion" value="1">
-        <label class="form-check-label">1 <span class="fa fa-star checked"></span></label>
-      </div>
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                <h2 class="text-lg-center font-weight-bold ">Productos Relacionados</h2>
+                <div class="row tamanio" id="contenedorDeProductosRelacionados"></div>
+            </div>
+            <div class="col">
 
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="radio-puntuacion" value="2">
-        <label class="form-check-label">2 <span class="fa fa-star checked"></span></label>
-      </div>
-
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="radio-puntuacion" value="3">
-        <label class="form-check-label">3 <span class="fa fa-star checked"></span></label>
-      </div>
-
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="radio-puntuacion" value="4">
-        <label class="form-check-label">4 <span class="fa fa-star checked"></span></label>
-      </div>
-
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="radio-puntuacion" value="5">
-        <label class="form-check-label">5 <span class="fa fa-star checked"></span></label>
-      </div>
-
-      <div class="form-group">
-        <label for="comentario">Agregar comentario</label>
-        <textarea class="form-control" id="comentario" rows="3"></textarea>
-      </div>
-
-      <button type="button" class="btn btn-primary" id="btn-enviar-comentario">Enviar</button>
-
-
-  </main>
-
-
-
-  </div>
-  </div>
-
-
-
-
-
-
-  <footer class="text-muted">
-
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+            </div>
+        </div>
+        <style>
+            .tamanio {
+                width: 100%;
+                text-align: center;
+            }
+        </style>
+        <!---->
+        <div id="comentarios" class="container mt-5"></div>
+        <div class="container mt-5">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio-puntuacion" value="1">
+                <label class="form-check-label">1 <span class="fa fa-star checked"></span></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio-puntuacion" value="2">
+                <label class="form-check-label">2 <span class="fa fa-star checked"></span></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio-puntuacion" value="3">
+                <label class="form-check-label">3 <span class="fa fa-star checked"></span></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio-puntuacion" value="4">
+                <label class="form-check-label">4 <span class="fa fa-star checked"></span></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radio-puntuacion" value="5">
+                <label class="form-check-label">5 <span class="fa fa-star checked"></span></label>
+            </div>
+            <div class="form-group">
+                <label for="comentario">Agregar comentario</label>
+                <textarea class="form-control" id="comentario" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" id="btn-enviar-comentario">Enviar</button>
+        </div>
+    </main>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+        </div>
+    </footer>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-
-
-
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
-  <script src="js/nav.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/product-info.js"></script>
+    <script src="js/nav.js"></script>
 </body>
 
 </html>

@@ -1,22 +1,22 @@
 var product = {};
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            product = resultObj.data;
-            var productImagesHTML = document.getElementById("productImages");
-            productImagesHTML.innerHTML = product.images;
-           
-        }
-    });
+  getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      product = resultObj.data;
+      var productImagesHTML = document.getElementById("productImages");
+      productImagesHTML.innerHTML = product.images;
 
-    document.addEventListener("DOMContentLoaded", function (e) {
-        var caurrus = `
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-           <img class="d-block w-100" src=" `+ product.images[1] + `">
-          </div>
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function (e) {
+    var caurrus = `
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+              <img class="d-block w-100" src=" `+ product.images[1] + `">
+            </div>
           <div class="carousel-item">
             <img class="d-block w-100" src="img/logojap.png" alt="Second slide">
           </div>
@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
           <span class="sr-only">Next</span>
         </a>
       </div>`
-        document.getElementById("carrusel").innerHTML = caurrus;
+    document.getElementById("carrusel").innerHTML = caurrus;
 
-    });
+  });
 
-    
+
 });

@@ -4,7 +4,7 @@ var estrellas = "";
 var newComment = "";
 var arrayProductosRelacionados = {};
 var arrayTodosLosProductos = {};
-
+var arrayDeImagenes = {};
 
 //
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -66,7 +66,7 @@ function dibujoBloquePrincipalHTML() {
     });
 }
 
-function dibujoGaleriaImagenes(productImages) {
+/*function dibujoGaleriaImagenes(productImages) {
     let htmlContentToAppend = "";
     for (let i = 0; i < productImages.length; i++) {
         let imageSrc = productImages[i];
@@ -80,7 +80,7 @@ function dibujoGaleriaImagenes(productImages) {
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
-
+*/
 function guardoProductosRelacionados(productosRelacionados) {
 
     arrayProductosRelacionados = productosRelacionados;
@@ -93,26 +93,20 @@ function guardoProductosRelacionados(productosRelacionados) {
 
                 for (var j = 0; j < arrayTodosLosProductos.length; j++) {
                     if (arrayProductosRelacionados[i] == j) {
-                        console.log(arrayTodosLosProductos[j]);
-
                         htmlContentToAppend += `
-                           <div class="col-sm-4 col-md-3">
-                               <div class="card-img-top">
-                                        <img src="`+ arrayTodosLosProductos[j].imgSrc + `" class="img-fluid mx-auto d-block" alt="Card image cap">
-                                    <div class="card-body text-center">
-                                        <h4 class="card-title">
-                                            <a href="#" class=" font-weight-bold text-dark text-uppercase small"> `+ arrayTodosLosProductos[j].name + `</a>
-                                        </h4>
-                                        <h5 class="card-price small text-warning">
-                                            <i><h3>`+ arrayTodosLosProductos[j].cost + `</h3>` + arrayTodosLosProductos[j].currency + `</i>
-                                        </h5>
-                                    </div>
-                                </div>
+                        
+                            <div class="col">
+                                <img src="`+ arrayTodosLosProductos[j].imgSrc + `" class="img-fluid mx-auto d-block">
+                                <a href="#" class=" font-weight-bold text-dark text-uppercase small"> `+ arrayTodosLosProductos[j].name + `</a>
+                                <h5 class="card-price small text-warning">
+                                    <i><h5>`+ arrayTodosLosProductos[j].cost + " " + arrayTodosLosProductos[j].currency + `</h5></i>
+                                </h5>
                             </div>`;
                     }
                 }
             }
-            document.getElementById("contenedor-productos-relacionados").innerHTML = htmlContentToAppend;
+            //document.getElementById("contenedor-productos-relacionados").innerHTML = htmlContentToAppend;
+            document.getElementById("contenedorDeProductosRelacionados").innerHTML = htmlContentToAppend;
         }
     });
 }
@@ -184,4 +178,27 @@ function dibujoComentario() {
             document.getElementById("comentarios").innerHTML = htmlContentToAppend;
         }
     })
+}
+
+
+
+function dibujoGaleriaImagenes(productImages) {
+    let htmlContentToAppend = "";
+    for (let i = 0; i < productImages.length; i++) {
+        let imageSrc = productImages[i];
+
+        if (i == 1) {
+            htmlContentToAppend += ` 
+            <div class="carousel-item active">
+                <img src="`+ imageSrc + `" alt="Los Angeles">
+            </div>`;
+        } else {
+            htmlContentToAppend += ` 
+            <div class="carousel-item ">
+                <img src="`+ imageSrc + `" alt="Los Angeles">
+            </div>`;
+        }
+
+        document.getElementById("carrusel-contenedor").innerHTML = htmlContentToAppend;
+    }
 }
