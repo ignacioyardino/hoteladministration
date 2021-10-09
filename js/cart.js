@@ -19,7 +19,7 @@ function dibujoVariables() {
       let articlesSrcHTML = document.getElementById("articles.src");
       //
       articlesNameHTML.innerHTML = articles.name;
-      articlesCountHTML.innerHTML = articlesCount;
+      articlesCountHTML.innerHTML = articles.count;
       articlesUnitCostHTML.innerHTML = articles.unitCost;
       articlesCurrencyHTML.innerHTML = articles.currency;
       articlesSrcHTML.innerHTML = articles.src;
@@ -52,7 +52,7 @@ function dibujoCarrito() {
               <div class="col-md-5 col-lg-3 col-xl-3">
                 <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                   <img class="img-fluid w-100"
-                  <img src="`+ "src": "img/tree1.jpg" + `" alt="Los Angeles">
+                  <img src="`+ "src: img/tree1.jpg" + `" alt="Los Angeles">
                   <a href="#!">
                   </a>
                 </div>
