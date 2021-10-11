@@ -52,7 +52,7 @@ function dibujoCarrito() {
               <div class="col-md-5 col-lg-3 col-xl-3">
                 <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                   <img class="img-fluid w-100"
-                  <img src="`+ "src: img/tree1.jpg" + `" alt="Los Angeles">
+                  <img src="`+ "src: img/tree1.jpg" + `">
                   <a href="#!">
                   </a>
                 </div>
@@ -62,9 +62,9 @@ function dibujoCarrito() {
                   <div class="d-flex justify-content-between">
                     <div>
                     <h4>`+ articles[i].name + `</h4>
-                      <p class="mb-3 text-muted text-uppercase small">Shirt - blue</p>
                       <p class="mb-2 text-muted text-uppercase small">Stock: `+ articles[i].count + `</p>                      
                       <p class="mb-3 text-muted text-uppercase small">Costo:`+ articles[i].unitCost + `: M</p>
+                      <p class="mb-3 text-muted text-uppercase small">`+ articles[i].currency + `</p>
                     </div>
                     <div>
                       <div class="def-number-input number-input safari_only mb-0 w-100">
