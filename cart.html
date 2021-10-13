@@ -3,7 +3,9 @@
 <html lang="en">
 
 <head>
+  <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/consulta-usuario.js"></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,19 +31,28 @@
       }
     }
   </style>
+
+  <script src="js/cart.js"></script>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
 <body>
-
-
   <div id="contenedordelnav"></div>
-  <div id="carrito"></div>
- 
-
   
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th class="text-center">Precio unitario</th>
+        <th class="text-center">Total</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody id="tablaContenedoraDeProductos"></tbody>
+  </table>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -50,12 +61,11 @@
       <div></div>
     </div>
   </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/nav.js"></script>
 </body>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/dropzone.js"></script>
+<script src="js/init.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/nav.js"></script>
 
 </html>
