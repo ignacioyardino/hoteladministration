@@ -63,7 +63,7 @@ function removeItem(botonEliminar) {
   var nombreProducto = $(productRow).children('.principal').children().children('.nombreProducto').text();
   var precioProducto = $(productRow).children('.totalPrecioContenedor').children().text();
 
-  
+
 
   console.log(precioProducto);
   $(productRow).fadeOut("slow", function () {
