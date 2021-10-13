@@ -54,8 +54,6 @@ function cargoProductosDeCarrito() {
     $('.eliminar-producto').click(function () {
       removeItem(this);
     });
-
-
   });
 }
 
