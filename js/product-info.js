@@ -190,12 +190,12 @@ function dibujoGaleriaImagenes(productImages) {
         if (i == 1) {
             htmlContentToAppend += ` 
             <div class="carousel-item active">
-                <img src="`+ imageSrc + `" alt="Los Angeles">
+                <img src="`+ imageSrc + `">
             </div>`;
         } else {
             htmlContentToAppend += ` 
             <div class="carousel-item ">
-                <img src="`+ imageSrc + `" alt="Los Angeles">
+                <img src="`+ imageSrc + `">
             </div>`;
         }
 
