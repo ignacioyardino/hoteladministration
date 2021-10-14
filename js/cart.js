@@ -4,7 +4,7 @@ $(document).ready(function () {
 
   cargoProductosDeCarrito();
 
-
+  calculoTotalPrecios
 
 });
 
@@ -24,9 +24,9 @@ function cargoProductosDeCarrito() {
         var precioProducto = arrayProductosDelCarrito.data.articles[i].unitCost;
         var moneda = arrayProductosDelCarrito.data.articles[i].currency;
         //
-        var totalPrecio = precioProducto * cantidadDeProductosComprados;
+        var totalParcialPorProducto = precioProducto * cantidadDeProductosComprados;
         if (moneda == "usd") {
-          precioProducto = precioProducto * 45;
+          precioProducto = precioProducto * 40;
           moneda = "UYU";
         }
         carrito += `
@@ -39,13 +39,13 @@ function cargoProductosDeCarrito() {
                 <h4 class="nombreProducto"><a href="#"> `+ nombreDeProducto + `</a></h4>
               </div>
             </td>
-            <td class="col-sm-1 col-md-1 productoComprados" style="text-align: center">
-              <input class="form-control" value="`+ cantidadDeProductosComprados + `">
+            <td class="col-sm-1 col-md-1 productosComprados" style="text-align: center">
+              <input class="productos-comprados" value="`+ cantidadDeProductosComprados + `">
             </td>
             <td class="col-sm-1 col-md-1 text-center"><strong>`+ precioProducto + " " + moneda + `</strong></td>
-            <td class="col-sm-1 col-md-1 text-center totalPrecioContenedor"><strong>`+ totalPrecio + `</strong></td>
+            <td class="col-sm-1 col-md-1 text-center totalParcialPorProductoContenedor"><strong>`+ totalParcialPorProducto + `</strong></td>
             <td class="col-sm-1 col-md-1">
-              <button class="eliminar-producto btn btn-danger"> eliminar</button>
+              <button class="eliminar-producto btn btn-danger">eliminar</button>
             </td>
           </tr> `;
       }
@@ -60,9 +60,9 @@ function cargoProductosDeCarrito() {
 function removeItem(botonEliminar) {
   /* Remove row from DOM and recalc cart total */
   var productRow = $(botonEliminar).parent().parent(); //CONSIGO LA ROW MEDIANTE EL "PADRE-DEL-PADRE"
-  var nombreProducto = $(productRow).children('.principal').children().children('.nombreProducto').text();
+  var nombreDeProducto = $(productRow).children('.principal').children().children('.nombreProducto').text();
   var precioProducto = $(productRow).children('.totalPrecioContenedor').children().text();
-
+  var cantidadDeProductosComprados = $(productRow).children('.productosComprados').children('.cantidadDeProductosComprados').text();
 
 
   console.log(precioProducto);
@@ -72,3 +72,4 @@ function removeItem(botonEliminar) {
 
 
 }
+
