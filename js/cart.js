@@ -4,9 +4,8 @@ $(document).ready(function () {
 
   cargoProductosDeCarrito();
 
-  calculoTotalPrecios
+  calculoParcialFilas();
 
-});
 
 
 
@@ -30,7 +29,7 @@ function cargoProductosDeCarrito() {
           moneda = "UYU";
         }
         carrito += `
-          <tr>
+          <tr class="filasDelaTabla">
             <td class="col-sm-8 col-md-6 principal">
               <div class="media">
                 <a class="thumbnail pull-left" href="#"> 
@@ -42,34 +41,40 @@ function cargoProductosDeCarrito() {
             <td class="col-sm-1 col-md-1 productosComprados" style="text-align: center">
               <input class="productos-comprados" value="`+ cantidadDeProductosComprados + `">
             </td>
-            <td class="col-sm-1 col-md-1 text-center"><strong>`+ precioProducto + " " + moneda + `</strong></td>
+            <td class="col-sm-1 col-md-1 text-center precioUnitario"><strong>`+ precioProducto + " " + moneda + `</strong></td>
             <td class="col-sm-1 col-md-1 text-center totalParcialPorProductoContenedor"><strong>`+ totalParcialPorProducto + `</strong></td>
             <td class="col-sm-1 col-md-1">
               <button class="eliminar-producto btn btn-danger">eliminar</button>
             </td>
-          </tr> `;
+          </tr>`;
       }
-      document.getElementById("tablaContenedoraDeProductos").innerHTML = carrito;
+      document.getElementById("cuerpoTabla").innerHTML = carrito;
     }
     $('.eliminar-producto').click(function () {
       removeItem(this);
     });
   });
+
 }
 
 function removeItem(botonEliminar) {
-  /* Remove row from DOM and recalc cart total */
   var productRow = $(botonEliminar).parent().parent(); //CONSIGO LA ROW MEDIANTE EL "PADRE-DEL-PADRE"
-  var nombreDeProducto = $(productRow).children('.principal').children().children('.nombreProducto').text();
-  var precioProducto = $(productRow).children('.totalPrecioContenedor').children().text();
-  var cantidadDeProductosComprados = $(productRow).children('.productosComprados').children('.cantidadDeProductosComprados').text();
-
-
-  console.log(precioProducto);
   $(productRow).fadeOut("slow", function () {
     $(productRow).remove();
   });
-
-
 }
 
+
+
+
+
+});
+
+function calculoParcialFilas() {
+
+  var item = $('.filasDelaTabla');
+
+  var numeracion = $("#cuerpoTabla").children()[1];
+
+  console.log(numeracion);
+}
