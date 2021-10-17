@@ -7,12 +7,27 @@ var existenElementos = false;
 var productosCompradosSender;
 var totalSender = 0;
 
+class Article { //CREO LA CLASE ARTICULOS CON SUS ATRIBUTOS
+    constructor(name, count, unitCost, currency, src) {
+        this.name = name;
+        this.count = count;
+        this.unitCost = unitCost;
+        this.currency = currency;
+        this.src = src;
+    }
+    dameDatos() {
+        console.log(this.name + " " + this.count + " " + this.unitCost + " " + this.currency + " " + this.src)
+    }
+}
+
+
+
 function cargoArrayArticulos() { //CARGO MI ARRAYLIST CON LA INFORMACION DEL JSON
     return $.ajax({
-        url: PRELOADED_ARTICLE_JSON,
+        url: CARRITO_PERSONALIZADO,
         type: "GET",
         dataType: 'json',
-        async: false, //SINCRONICO, NO ESPERO EL CALLBACK, DALE QUE ES TARTDE
+        async: false, //SINCRONICO, NO ESPERO EL CALLBACK
         success: function(data) {
             for (var i = 0; i < data.articles.length; i++) {
                 var newArticle = new Article(data.articles[i].name, data.articles[i].count, data.articles[i].unitCost, data.articles[i].currency, data.articles[i].src); //CREO EL OBJETO
@@ -26,16 +41,16 @@ function dibujoArticulos() {
     var htmlContentToAppend = "";
     for (var i = 0; i < articleList.length; i++) {
         var precioArticuloLinea = articleList[i].unitCost * articleList[i].count;
-        if (articleList[i].currency == "USD") { //PASO A PESOS CUALQUIER ELEMENTO QUE ESTE EN DOLARES
+        if (articleList[i].currency == "usd") { //PASO A PESOS CUALQUIER ELEMENTO QUE ESTE EN DOLARES
             articleList[i].unitCost = articleList[i].unitCost * cotizacion;
             articleList[i].currency = "UYU";
             precioArticuloLinea = articleList[i].unitCost;
         }
         moneda = articleList[i].currency;
         htmlContentToAppend += `
-            <div class="p-3 clearfix item">
+            <div class="p-12 clearfix item" style="padding:15px;border: 1px solid gainsboro;">
                 <img src="` + articleList[i].src + `" width="80px">
-                <div class="col-lg-5 col-5 text-lg-left product-name-and-unit-cost">
+                <div class="col-lg-12 col-12  product-name-and-unit-cost">
                     <h4 class="product-name">` + articleList[i].name + `<br>
                         <h5  class="product-unit-cost">costo unitario: ` + articleList[i].unitCost + " " + articleList[i].currency + `</h5>
                     </h4>
@@ -144,14 +159,10 @@ function controlFinal() { // VALIDO CONTROLANDO LOS INPUT, PODRIA CONTROLAR TODO
     if (existenElementos == true) { //VALIDO QUE EXISTAN ELEMENTOS A COMPRAR, ESTO NO LO PIDE LA LETRA LO HAGO DE ONDA Y PORQUE ES UNA SOLA LINEA DE CODIGO
         if (!$('#calle').val() == "" && !$('#numero').val() == "" && !$('#esquina').val() == "") {
             if (((!$('#numeroDeCuenta').val() == "") && (!$('#cedulaIdentidad').val() == "") && (!$('#pin').val() == "")) || ((!$('#titular').val() == "") && (!$('#cardNumber').val() == "") && (!$('#cvv').val() == ""))) {
-                var emailSender = localStorage.getItem("USER_EMAIL");
-                $.ajax({
-                    url: INSERT_ORDEN_COMPRA_POST,
-                    type: "post",
-                    data: { email: emailSender, orden_compra: productosCompradosSender, total: totalSender },
-                    success: function(data) {
-                        console.log(data);
-                        alert(BUY_SUCCESS_MSG.msg);
+                getJSONData(CART_BUY_URL).then(function(resultObj) {
+                    if (resultObj.status === "ok") {
+                        var mensaje = resultObj.data.msg;
+                        alert(mensaje);
                     }
                 });
             } else {
@@ -164,13 +175,8 @@ function controlFinal() { // VALIDO CONTROLANDO LOS INPUT, PODRIA CONTROLAR TODO
         alert("no tiene elementos en el carrito de compra");
     }
 }
-$(document).ready(function() { //DOM CONTENT LOADED
-    getJSONData(CART_BUY_URL).then(function(resultObj) { //CARGO EL MENSAJE "PERSONALIZADO" DEL JSON
-        if (resultObj.status === "ok") {
-            BUY_SUCCESS_MSG = resultObj.data;
-        }
-        return BUY_SUCCESS_MSG; //RETORNO LA RESPUESTA
-    });
+$(document).ready(function() {
+
     //
     cargoArrayArticulos();
     dibujoArticulos();
