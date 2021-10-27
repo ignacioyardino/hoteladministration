@@ -1,6 +1,4 @@
-
-
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function(e) {
 
     document.getElementById("btnLogin").addEventListener("click", myFunction)
 

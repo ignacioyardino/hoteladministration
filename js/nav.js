@@ -1,7 +1,9 @@
+document.addEventListener("DOMContentLoaded", function(e) {
 
-document.addEventListener("DOMContentLoaded", function (e) {
-  var barra =
-    ` <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    var perfil = JSON.parse(localStorage.getItem("USUARIOPERFIL"));
+
+    var barra =
+        ` <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
@@ -10,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         <a class="py-2 d-none d-md-inline-block"  href="cart.html">Mi carrito</a>
         <div class="dropdown">
   <button class="btn btn bg-light text-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   ` + localStorage.getItem("USUARIO") + `
+   ` + perfil.USUARIO + `
+
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
   <a class="dropdown-item" href="my-profile.html" type="button">Mi perfil</a>
@@ -21,14 +24,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
       
         </div>
     </nav>`
-  document.getElementById("contenedordelnav").innerHTML = barra;
+    document.getElementById("contenedordelnav").innerHTML = barra;
 
 
-  document.getElementById("cerrar_btn").addEventListener("click", function () {
-    localStorage.clear();
-    window.location.href = "index.html";
-    alert("Gracias por su visita");
-  });
+    document.getElementById("cerrar_btn").addEventListener("click", function() {
+        localStorage.clear();
+        window.location.href = "index.html";
+        alert("Gracias por su visita");
+    });
 
 
 });

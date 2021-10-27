@@ -7,12 +7,12 @@ var arrayTodosLosProductos = {};
 var arrayDeImagenes = {};
 
 //
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function(e) {
     dibujoBloquePrincipalHTML();
     //DIBUJO LOS COMENTARIOS
     dibujoComentario();
     //AGREGO LISTENER DE EVENTO CLIC EN EL BOTON DE COMENTARIO
-    $("#btn-enviar-comentario").click(function () {
+    $("#btn-enviar-comentario").click(function() {
         dibujoComentariosNuevos();
     });
 });
@@ -27,24 +27,23 @@ function dibujoComentariosNuevos() {
             <div class=" px-3" style="padding-top: 10px;padding-bottom: 10px;margin-bottom:10px; border-width: 0.10px;
             border-style: solid;
             border-color: orange;">
-            <h4>`+ localStorage.getItem("USUARIO") + `</h4>
-            <p>`+ $('#comentario').val() + `</p>
-            <p>`+ estrellas + `</p>
-            <small>`+ fecha + `</small>
+            <h4>` + localStorage.getItem("USUARIO") + `</h4>
+            <p>` + $('#comentario').val() + `</p>
+            <p>` + estrellas + `</p>
+            <small>` + fecha + `</small>
             </div>`;
         document.getElementById("comentarios").innerHTML = comentariosAntiguos + newComment;
         //RESETEAR VARIABLE / RESETEO CAMPOS
         $('#comentario').val("");
         $("input[type=radio][name=radio-puntuacion]").prop('checked', false);
         estrellas = "";
-    }
-    else {
+    } else {
         alert("debe seleccionar un puntaje");
     }
 }
 
 function dibujoBloquePrincipalHTML() {
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             product = resultObj.data; //EL RESULTADO DEL JSON LO GUARDO EN UNA VARIABLE DEL PRODUCTO
             //
@@ -85,7 +84,7 @@ function guardoProductosRelacionados(productosRelacionados) {
 
     arrayProductosRelacionados = productosRelacionados;
 
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             var htmlContentToAppend = "";
             arrayTodosLosProductos = resultObj.data;
@@ -96,10 +95,10 @@ function guardoProductosRelacionados(productosRelacionados) {
                         htmlContentToAppend += `
                         
                             <div class="col">
-                                <img src="`+ arrayTodosLosProductos[j].imgSrc + `" class="img-fluid mx-auto d-block">
-                                <a href="#" class=" font-weight-bold text-dark text-uppercase small"> `+ arrayTodosLosProductos[j].name + `</a>
+                                <img src="` + arrayTodosLosProductos[j].imgSrc + `" class="img-fluid mx-auto d-block">
+                                <a href="#" class=" font-weight-bold text-dark text-uppercase small"> ` + arrayTodosLosProductos[j].name + `</a>
                                 <h5 class="card-price small text-warning">
-                                    <i><h5>`+ arrayTodosLosProductos[j].cost + " " + arrayTodosLosProductos[j].currency + `</h5></i>
+                                    <i><h5>` + arrayTodosLosProductos[j].cost + " " + arrayTodosLosProductos[j].currency + `</h5></i>
                                 </h5>
                             </div>`;
                     }
@@ -156,7 +155,7 @@ function dibujoEstrellas(score, estrellas) {
 }
 
 function dibujoComentario() {
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             comentarios = resultObj.data;
             let htmlContentToAppend = "";
@@ -168,10 +167,10 @@ function dibujoComentario() {
                 <div class=" px-3" style="padding-top: 10px;padding-bottom: 10px;margin-bottom:10px; border-width: 0.10px;
                 border-style: solid;
                 border-color: orange;">
-                    <h4>`+ comentarios[i].user + `</h4>
-                    <p>`+ comentarios[i].description + `</p>
-                    <p>`+ estrellas + `</p>
-                    <small>`+ comentarios[i].dateTime + `</small>
+                    <h4>` + comentarios[i].user + `</h4>
+                    <p>` + comentarios[i].description + `</p>
+                    <p>` + estrellas + `</p>
+                    <small>` + comentarios[i].dateTime + `</small>
                 </div>`;
                 estrellas = "";
             }
@@ -190,12 +189,12 @@ function dibujoGaleriaImagenes(productImages) {
         if (i == 1) {
             htmlContentToAppend += ` 
             <div class="carousel-item active">
-                <img src="`+ imageSrc + `">
+                <img src="` + imageSrc + `">
             </div>`;
         } else {
             htmlContentToAppend += ` 
             <div class="carousel-item ">
-                <img src="`+ imageSrc + `">
+                <img src="` + imageSrc + `">
             </div>`;
         }
 

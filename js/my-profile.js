@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(e) {
+function dibujoDatosPerfil() {
 
     var htmlContentToAppend = "";
     htmlContentToAppend += `
@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
         <div class="row">
             <div class="col-sm-4" style="margin-top: 50px;">
                 <div class="text-center">
-                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" id="avatar" class="avatar img-circle img-thumbnail" alt="avatar">
                     <h6>Cambiar foto de perfil.</h6>
-                    <input type="file" class="text-center center-block file-upload">
+                    <input id="subirIMG" type="file" class="text-center center-block file-upload">
                 </div>
                 </hr><br>
             </div>
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 <div class="tab-content">
                     <div class="tab-pane active" id="home">
                         <hr>
-                        <form class="form" action="##" method="post" id="registrationForm">
+                        <form class="form" id="registrationForm">
                             <div class="form-group">
 
                                 <div class="col-xs-6">
@@ -81,16 +81,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
                                     <label for="password2">
                                       <h4>Verifica la contraseña</h4>
                                   </label>
-                                    <input type="password" class="form-control" name="password2" id="passwordPerfil2" placeholder="Volver a escribir contraseña">
+                                    <input type="password" class="form-control" name="password2" placeholder="Volver a escribir contraseña">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <br>
-                                    <button class="btn btn-success" id="botonGuardarPerfil" type="submit"><i
-                                          class="glyphicon glyphicon-ok-sign"></i> Guardar</button>
-                                    <button class="btn btn-danger" type="reset"><i
-                                          class="glyphicon glyphicon-repeat"></i> Limpiar</button>
+                                    <button class="btn btn-success" id="botonGuardarPerfil">
+                                       Guardar</button>
+                                    <button class="btn btn-danger" type="reset"> Limpiar</button>
                                 </div>
                             </div>
                         </form>
@@ -102,64 +101,61 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
             </div>
         </div>
-    
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var readURL = function(input) {
-                    if (input.files && input.files[0]) {
-                        var reader = new FileReader();
-
-                        reader.onload = function(e) {
-                            $('.avatar').attr('src', e.target.result);
-                        }
-
-                        reader.readAsDataURL(input.files[0]);
-                    }
-                }
-
-                $(".file-upload").on('change', function() {
-                    readURL(this);
-                });
-            });
-        </script>
+ 
+          
+   
     `
     document.getElementById("contenedorDePerfil").innerHTML = htmlContentToAppend;
-})
-document.getElementById("botonGuardarPerfil").addEventListener("click", myFunction)
+}
 
-function myFunction() {
+
+document.addEventListener("DOMContentLoaded", function(e) {
+
+    dibujoDatosPerfil();
+
+    agregoListenners();
+})
+
+//////////////////////////////////
+
+function guardarPerfil() {
     var nombrePerfil = document.getElementById("nombrePerfil").value;
     var apellidosPerfil = document.getElementById("apellidosPerfil").value;
     var edadPerfil = document.getElementById("edadPerfil").value;
     var telefonoPerfil = document.getElementById("telefonoPerfil").value;
     var emailPerfil = document.getElementById("emailPerfil").value;
     var passwordPerfil = document.getElementById("passwordPerfil").value;
-    var passwordPerfil2 = document.getElementById("passwordPerfil2").value;
 
+    localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: nombrePerfil, APELLIDOSPERFIL: apellidosPerfil, EDADPERFIL: edadPerfil }));
 
+}
 
+function agregoListenners() {
+    document.getElementById("botonGuardarPerfil").addEventListener("click", function() {
+        guardarPerfil();
+    });
+    document.getElementById("subirIMG").addEventListener("click", function() {
+        cargar();
+    });
+}
 
+function cargar() {
 
-    if (nombrePerfil == "" && apellidosPerfil != "" && edadPerfil != "" && telefonoPerfil != "" && emailPerfil != "" && passwordPerfil != "" && passwordPerfil2 != "") {
-        alert("Debe colocar un nombre.")
-    } else if (apellidosPerfil == "" && nombrePerfil != "" && edadPerfil != "" && telefonoPerfil != "" && emailPerfil != "" && passwordPerfil != "" && passwordPerfil2 != "") {
-        alert("Debe colocar sus Apellido.")
-    } else if (edadPerfil == "" && nombrePerfil != "" && edadPerfil != "" && telefonoPerfil != "" && emailPerfil != "" && passwordPerfil != "" && passwordPerfil2 != "") {
-        alert("Debe colocar su edad.")
-    } else if (telefonoPerfil == "" && nombrePerfil != "" && edadPerfil != "" && edadPerfil != "" && emailPerfil != "" && passwordPerfil != "" && passwordPerfil2 != "") {
-        alert("Debe colocar su número de teléfono.")
-    } else if (emailPerfil == "" && nombrePerfil != "" && edadPerfil != "" && telefonoPerfil != "" && telefonoPerfil != "" && passwordPerfil != "" && passwordPerfil2 != "") {
-        alert("Debe colocar Su edad.")
-    } else if (passwordPerfil == passwordPerfil2 && nombrePerfil != "" && edadPerfil != "" && emailPerfil != "" && emailPerfil != "" && passwordPerfil != "" && passwordPerfil2 != "") {
-        alert("Las contraseñas no coinciden.")
-    } else if (passwordPerfil2 == passwordPerfil && nombrePerfil != "" && edadPerfil != "" && emailPerfil != "" && passwordPerfil != "" && passwordPerfil2 != "") {
-        alert("Las contraseñas no coinciden.")
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            console.log(reader);
+            reader.onload = function(e) {
 
-        localStorage.setItem('nombrePerfil', nombrePerfil);
-        localStorage.setItem('apellidosPerfil', apellidosPerfil);
-        localStorage.setItem('edadPerfil', edadPerfil);
-        localStorage.setItem('telefonoPerfil', telefonoPerfil);
-        localStorage.setItem('passwordPerfil', passwordPerfil);
-        localStorage.setItem('nombrePerfil', apellidosPerfil);
+                $('#avatar').css('background-image', 'url(' + e.target.result + ')');
+            }
+
+        }
     }
-};
+
+    $(".file-upload").on('change', function() {
+        $('#avatar').css('background-image', 'url(' + e.target.result + ')');
+        readURL(this);
+    });
+
+}
