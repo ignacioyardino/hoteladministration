@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(e) {
 
-
-    if (localStorage.getItem("USUARIO") != null && localStorage.getItem("CONTRASENIA") != null) {
+    var perfil = JSON.parse(localStorage.getItem("USUARIOPERFIL"));
+    if (perfil.USUARIO != null && perfil.CONTRASENIA != null) {
 
 
 

@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
             alert("Debe colocar usaurio y contraseña.")
         } else if (usuario != "" && contrasenia != "") {
 
-            localStorage.setItem('USUARIO', usuario);
-            localStorage.setItem('CONTRASENIA', contrasenia);
 
+
+            localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: usuario, CONTRASENIA: contrasenia }));
 
             window.location.href = "home.html"
 

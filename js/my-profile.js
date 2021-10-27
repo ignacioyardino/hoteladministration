@@ -72,7 +72,7 @@ function dibujoDatosPerfil() {
                                     <label for="password">
                                       <h4>Contraseña</h4>
                                   </label>
-                                    <input type="password" class="form-control" name="password" id="passwordPerfil" placeholder="Introduce una contraseña">
+                                    <input type="password" class="form-control" name="password" id="usuario-contrasenia" placeholder="Introduce una contraseña">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -119,14 +119,18 @@ document.addEventListener("DOMContentLoaded", function(e) {
 //////////////////////////////////
 
 function guardarPerfil() {
+    var perfil = JSON.parse(localStorage.getItem("USUARIOPERFIL"));
+
     var nombrePerfil = document.getElementById("nombrePerfil").value;
     var apellidosPerfil = document.getElementById("apellidosPerfil").value;
     var edadPerfil = document.getElementById("edadPerfil").value;
     var telefonoPerfil = document.getElementById("telefonoPerfil").value;
     var emailPerfil = document.getElementById("emailPerfil").value;
-    var passwordPerfil = document.getElementById("passwordPerfil").value;
+    var usuarioContrasenia = document.getElementById("usuario-contrasenia").value;
 
-    localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: nombrePerfil, APELLIDOSPERFIL: apellidosPerfil, EDADPERFIL: edadPerfil }));
+    perfil.USUARIO = nombrePerfil;
+    perfil.CONTRASENIA = usuarioContrasenia;
+    localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: perfil.USUARIO, CONTRASENIA: perfil.CONTRASENIA }));
 
 }
 
