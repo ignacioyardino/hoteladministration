@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 function guardarPerfil() {
 
 
-    if (comprueboContrasenia()) {
+    if (comprueboContrasenia() && comprueboDatosObligatorios() && comprueboEmail()) {
         var perfil = JSON.parse(localStorage.getItem("USUARIOPERFIL"));
 
         var nombrePerfil = document.getElementById("nombrePerfil").value;
