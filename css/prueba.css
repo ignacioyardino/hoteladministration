@@ -1,0 +1,11 @@
+@media (max-width: 600px) {
+    .col-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: none;
+        max-width: none;
+    }
+}
+
+.col-4 {
+    margin-right: 40px;
+}
