@@ -1,197 +1,103 @@
-var imgURL = "";
+var imgPerfil = "";
+var perfil = JSON.parse(localStorage.getItem("USUARIOPERFIL"));
 
 document.addEventListener("DOMContentLoaded", function(e) {
-
-    dibujoDatosPerfil();
-
+    $("#botonGuardar").prop("disabled", true);
     agregoListenners();
+    datos();
 })
 
-//////////////////////////////////
+function datos() {
+
+    imgPerfil = perfil.USUARIOIMAGEN;
+    document.getElementById("nombre").value = perfil.USUARIO;
+    document.getElementById("edad").value = perfil.USUARIOEDAD;
+    document.getElementById("telefono").value = perfil.USUARIOTELEFONO;
+    document.getElementById("email").value = perfil.USUARIOEMAIL;
+    document.getElementById("avatar").src = perfil.USUARIOIMAGEN;
+
+}
 
 function guardarPerfil() {
-
-
-    if (comprueboContrasenia() && comprueboDatosObligatorios() && comprueboEmail()) {
-        var perfil = JSON.parse(localStorage.getItem("USUARIOPERFIL"));
-
-        var nombrePerfil = document.getElementById("nombrePerfil").value;
-        var apellidosPerfil = document.getElementById("apellidosPerfil").value;
-        var edadPerfil = document.getElementById("edadPerfil").value;
-        var telefonoPerfil = document.getElementById("telefonoPerfil").value;
-        var emailPerfil = document.getElementById("emailPerfil").value;
-
-
-
-        perfil.USUARIO = nombrePerfil;
-        perfil.CONTRASENIA = usuarioContrasenia;
-        localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: perfil.USUARIO, CONTRASENIA: perfil.CONTRASENIA, IMAGENUSUARIO: imgPerfil }));
-    } else {
-        alert("nop");
+    if (imgPerfil == "") {
+        imgPerfil = "/img/usuario.png";
     }
-
-
-
+    localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: $("#nombre").val(), CONTRASENIA: $("#contrasenia").val(), USUARIOIMAGEN: imgPerfil, USUARIOEDAD: $("#edad").val(), USUARIOEMAIL: $("#email").val(), USUARIOTELEFONO: $("#telefono").val() }));
 }
 
 function agregoListenners() {
-    document.getElementById("botonGuardarPerfil").addEventListener("click", function() {
+    document.getElementById("botonGuardar").addEventListener("click", function() {
         guardarPerfil();
     });
 
-}
+    $("#nombre, #edad, #telefono, #email, #contrasenia").on('change paste keyup input', function() {
 
-
-//COMPRUEBO CONTRASSEÑA
-function comprueboContrasenia() {
-    var pass = document.getElementById("usuario-contrasenia").value;
-    var verificoPass = document.getElementById("verificar-contrasenia").value;
-    //
-    if ((pass != verificoPass) || ((pass == "" || verificoPass == ""))) {
-        alert("la contraseña no es valida");
-    } else return true;
-}
-
-
-
-
-function cargar() {
-
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            console.log(reader);
-            reader.onload = function(e) {
-
-                $('#avatar').css('background-image', 'url(' + e.target.result + ')');
-            }
-
+        var nombreValido = false;
+        var edadValido = false;
+        var telefonoValido = false;
+        var emailValido = false;
+        var contraseniaValido = false;
+        //
+        if ($("#nombre").val().length > 0) {
+            nombreValido = true;
+        } else {
+            nombreValido = false;
         }
-    }
+        //
+        if ($("#edad").val().length > 0) {
+            edadValido = true;
+        } else {
+            edadValido = false;
+        }
+        //
+        if ($("#telefono").val().length > 0) {
+            telefonoValido = true;
+        } else {
+            telefonoValido = false;
+        }
+        //
+        if ($("#email").val().length > 0) {
+            emailValido = true;
+        } else {
+            emailValido = false;
+        }
+        //
+        if ($("#contrasenia").val().length > 0) {
+            contraseniaValido = true;
+        } else {
+            contraseniaValido = false;
+        }
+        //
+        if (nombreValido && edadValido && telefonoValido && emailValido && contraseniaValido) {
+            $("#botonGuardar").prop("disabled", false);
+        } else {
+            $("#botonGuardar").prop("disabled", true);
+        }
 
-    $(".file-upload").on('change', function() {
-        $('#avatar').css('background-image', 'url(' + e.target.result + ')');
-        readURL(this);
     });
-
 }
 
-function showPreview(event) {
+/*///////////////////////////////
+  ___ __  __    _    ____ _____ _   _   ____  _____ ____  _____ ___ _     
+ |_ _|  \/  |  / \  / ___| ____| \ | | |  _ \| ____|  _ \|  ___|_ _| |    
+  | || |\/| | / _ \| |  _|  _| |  \| | | |_) |  _| | |_) | |_   | || |    
+  | || |  | |/ ___ | |_| | |___| |\  | |  __/| |___|  _ <|  _|  | || |___ 
+ |___|_|  |_/_/   \_\____|_____|_| \_| |_|   |_____|_| \_|_|   |___|_____|                                                                   
+/////////////////////////////////*/
+function cargarImagenPerfil(event) {
     if (event.target.files.length > 0) {
         var src = URL.createObjectURL(event.target.files[0]);
-        var preview = document.getElementById("avatar");
-        preview.src = src;
-        preview.style.display = "block";
+        var avatar = document.getElementById("avatar");
+        avatar.src = src;
+        avatar.style.display = "block";
         //
-        var fileToLoad = event.target.files[0];
+        var archivoACargar = event.target.files[0];
+        var lector = new FileReader();
 
-        var fileReader = new FileReader();
-        var imgURL;
-        fileReader.onload = function(fileLoadedEvent) {
-            imgURL = fileLoadedEvent.target.result; // <--- data: base64
-
-
-            imgPerfil = imgURL;
-
+        lector.onload = function(fileLoadedEvent) {
+            imgPerfil = fileLoadedEvent.target.result; // <--- data: base64
         }
-        fileReader.readAsDataURL(fileToLoad);
+        lector.readAsDataURL(archivoACargar);
 
     }
-}
-
-
-function dibujoDatosPerfil() {
-
-    var htmlContentToAppend = "";
-    htmlContentToAppend += `
-
-    <div class="container">
-    <div class="row">
-        <div class="col-sm-12" style="margin-top: 50px;">
-            <h3>Mi perfil</h3>
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <hr>
-                    <form class="form" id="registrationForm">
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="nombre">
-                                  <h4>Nombre</h4>
-                              </label>
-                                <input type="text" class="form-control" name="nombre" id="nombrePerfil" placeholder="Introduce tu nombre completo">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="last_name">
-                                  <h4>Apellidos</h4>
-                              </label>
-                                <input type="text" class="form-control" name="apellidos" id="apellidosPerfil" placeholder="Introduce tus teléfono de contacto apellidos">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="edad">
-                                <h4>Edad</h4>
-                            </label>
-                                <input type="text" class="form-control" id="edadPerfil" placeholder="Introduce tu edad">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile">
-                                  <h4>Teléfono de contacto</h4>
-                              </label>
-                                <input type="text" class="form-control" name="telefono" id="telefonoPerfil" placeholder="Introduce tu teléfono de contacto">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email">
-                                  <h4>E-mail</h4>
-                              </label>
-                                <input type="email" class="form-control" name="email" id="emailPerfil" placeholder="tu@email.com">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password">
-                                  <h4>Contraseña</h4>
-                              </label>
-                                <input type="password" class="form-control"  id="usuario-contrasenia" placeholder="Introduce una contraseña">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password2">
-                                  <h4>Verifica la contraseña</h4>
-                              </label>
-                                <input type="password" class="form-control" id="verificar-contrasenia" placeholder="Volver a escribir contraseña">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-success" id="botonGuardarPerfil">
-                                   Guardar</button>
-                                <button class="btn btn-danger" type="reset"> Limpiar</button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <hr>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    `
-    document.getElementById("contenedorDePerfil").innerHTML = htmlContentToAppend;
 }

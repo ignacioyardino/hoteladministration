@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 
 
-            localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: usuario, CONTRASENIA: contrasenia }));
+            localStorage.setItem('USUARIOPERFIL', JSON.stringify({ USUARIO: usuario, CONTRASENIA: contrasenia, USUARIOIMAGEN: "/img/usuario.png", USUARIOEDAD: "", USUARIOEMAIL: "", USUARIOTELEFONO: "" }));
 
             window.location.href = "home.html"
 
