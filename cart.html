@@ -38,7 +38,7 @@
                         <input type="text" class="form-control" id="calle" placeholder="Calle">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="numero" placeholder="Numero">
+                                <input type="text" class="form-control" id="numero" placeholder="Número">
                             </div>
                         </div>
                         <div class="row">
@@ -48,26 +48,26 @@
                         </div>
                         <!--DIV ENVIO--->
                         <div id="tipo-envio-main-container">
-                            <h5 class="mb-3 text-uppercase mb-0"><strong>Tipo de envio</strong></h5>
+                            <h5 class="mb-3 text-uppercase mb-0"><strong>Tipo de envío</strong></h5>
                             <div class="envio">
-                                <label><input type="radio" name="optradio" checked value="0.15"> Premium 2 a 5 dias (15%)</label>
+                                <label><input type="radio" name="optradio" checked value="0.15"> Premium  2 a 5 días (15%)</label>
                             </div>
                             <div class="envio">
-                                <label><input type="radio" name="optradio" value="0.07"> Expres 5 a 8 dias (7%)</label>
+                                <label><input type="radio" name="optradio" value="0.07"> Express  5 a 8 días (7%)</label>
                             </div>
                             <div class="envio">
-                                <label><input type="radio" name="optradio" value="0.05"> Estandar 12 a 15 dias (5%)</label>
+                                <label><input type="radio" name="optradio" value="0.05"> Estándar  12 a 15 días (5%)</label>
                             </div>
                         </div>
                         <!--DIV METODO PAGO--->
                         <div id="medio-pago-main-container">
                             <h5 class="mb-3 text-uppercase mb-0"><strong>Metodo de pago</strong></h5>
                             <div class="medioPago">
-                                <label><input type="radio" name="optRadioEnvio" value="credito" data-toggle="modal" data-target="#modalTarjetaCredito"> Tarjeta de Credito</label>
+                                <label><input type="radio" name="optRadioEnvio" value="credito" data-toggle="modal" data-target="#modalTarjetaCredito"> Tarjeta de Crédito</label>
                             </div>
                             <div class="medioPago">
                                 <label><input type="radio" name="optRadioEnvio" value="debito" data-toggle="modal"
-                    data-target="#modalTarjetaDebito"> Tarjeta de Debito</label>
+                    data-target="#modalTarjetaDebito"> Tarjeta de Débito</label>
                             </div>
                         </div>
                         <!--MODAL PAGO CREDITO--->
@@ -76,14 +76,14 @@
                                 <div class="modal-content">
                                     <form>
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Tarjeta de Credito</h5>
+                                            <h5 class="modal-title">Tarjeta de Crédito</h5>
                                         </div>
                                         <div class="modal-body">
                                             <div class="tarjeta form-group owner">
                                                 <input type="text" class="form-control" id="titular" placeholder="Titular de la tarjeta">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="cardNumber" placeholder="numero de la tarjeta">
+                                                <input type="text" class="form-control" id="cardNumber" placeholder="Número de la tarjeta">
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="cvv" placeholder="CVV">
@@ -119,7 +119,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -131,14 +131,14 @@
                                 <div class="modal-content">
                                     <form>
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Tarjeta de Debito</h5>
+                                            <h5 class="modal-title">Tarjeta de Débito</h5>
                                         </div>
                                         <div class="modal-body">
                                             <div class="tarjeta form-group owner">
-                                                <input type="text " class="form-control" id="numeroDeCuenta" placeholder="Numero de Cuenta">
+                                                <input type="text " class="form-control" id="numeroDeCuenta" placeholder="Número de Cuenta">
                                             </div>
                                             <div class="form-group" id="cedulaIdentidadField">
-                                                <input type="text" class="form-control" id="cedulaIdentidad" placeholder="Cedula Identidad">
+                                                <input type="text" class="form-control" id="cedulaIdentidad" placeholder="Cédula Identidad">
                                             </div>
                                             <div class="form-group CVV">
                                                 <input type="password" class="form-control" id="pin" placeholder="PIN">
@@ -148,7 +148,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -157,14 +157,14 @@
                         <!--DIV DETALLE FACTURA--->
                         <div class="border px-3">
                             <div class="border-bottom">
-                                <p class="text-uppercase mb-0 py-3"><strong>detalle de factura</strong></p>
+                                <p class="text-uppercase mb-0 py-3"><strong>Detalle de factura</strong></p>
                             </div>
                             <div class="totals-item d-flex align-items-center justify-content-between mt-3">
                                 <p class="text-uppercase">Subtotal</p>
                                 <p class="totals-value" id="cart-subtotal"></p>
                             </div>
                             <div class="totals-item d-flex align-items-center justify-content-between">
-                                <p class="text-uppercase">Costo Envio</p>
+                                <p class="text-uppercase">Costo Envío</p>
                                 <p class="totals-value" id="costoEnvio"></p>
                             </div>
                             <div class="totals-item totals-item-total d-flex align-items-center justify-content-between mt-3 pt-3 border-top border-gainsboro">

@@ -52,7 +52,7 @@ function dibujoArticulos() {
                 <img src="` + articleList[i].src + `" width="80px">
                 <div class="col-lg-12 col-12  product-name-and-unit-cost">
                     <h4 class="product-name">` + articleList[i].name + `<br>
-                        <h5  class="product-unit-cost">costo unitario: ` + articleList[i].unitCost + " " + articleList[i].currency + `</h5>
+                        <h5  class="product-unit-cost">Costo unitario: ` + articleList[i].unitCost + " " + articleList[i].currency + `</h5>
                     </h4>
                 </div>
                 <div class="product-price d-none">` + articleList[i].unitCost + `</div>
