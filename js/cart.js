@@ -136,7 +136,7 @@ function updateQuantity(quantityInput) {
 /* Remove item from cart */
 function removeItem(removeButton) {
     /* Remove row from DOM and recalc cart total */
-    var productRow = $(removeButton).parent().parent(); //CONSIGO LA ROW MEDIANTE EL "PADRE-DEL-PADRE" AGAIN
+    var productRow = $(removeButton).parent().parent(); //CONSIGO LA ROW MEDIANTE EL "PADRE-DEL-PADRE"
     productRow.slideUp(fadeTime, function() {
         productRow.remove();
         recalculateCart();
@@ -155,8 +155,8 @@ function metodoDepago(optionSelected) { //RESETEO LAS VARIABLES DE LSO INPUTS CU
     }
 }
 
-function controlFinal() { // VALIDO CONTROLANDO LOS INPUT, PODRIA CONTROLAR TODOS LOS INPUT DE LA PAGINA Y/O FILTRAR POR CLASE, PERO TA; ERAN POCOS PINTO ID
-    if (existenElementos == true) { //VALIDO QUE EXISTAN ELEMENTOS A COMPRAR, ESTO NO LO PIDE LA LETRA LO HAGO DE ONDA Y PORQUE ES UNA SOLA LINEA DE CODIGO
+function controlFinal() { // VALIDO CONTROLANDO LOS INPUT
+    if (existenElementos == true) { //VALIDO QUE EXISTAN ELEMENTOS A COMPRAR
         if (!$('#calle').val() == "" && !$('#numero').val() == "" && !$('#esquina').val() == "") {
             if (((!$('#numeroDeCuenta').val() == "") && (!$('#cedulaIdentidad').val() == "") && (!$('#pin').val() == "")) || ((!$('#titular').val() == "") && (!$('#cardNumber').val() == "") && (!$('#cvv').val() == ""))) {
                 getJSONData(CART_BUY_URL).then(function(resultObj) {
@@ -184,7 +184,7 @@ $(document).ready(function() {
     //
     $('.pass-quantity input').change(function() {
         updateQuantity(this); //LE PASO EL ELEMENTO QUE DISPARO EL EVENTO A LA FUNCION
-        if (($(this).val() == "") || ($(this).val() == "0")) { // SI PONES "" (VACIO) O PONES CANTIDAD EN CERO, ELIMINO EL ELEMENTO DE LA LISTA DE COMPRA, NADA DE VACILAR AL SOFTWARE :P
+        if (($(this).val() == "") || ($(this).val() == "0")) { // SI PONES "" (VACIO) O PONES CANTIDAD EN CERO, ELIMINO EL ELEMENTO DE LA LISTA DE COMPRA
             removeItem(this);
         }
     });
