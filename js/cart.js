@@ -125,7 +125,7 @@
 
      /* Update line price display and recalc cart totals */
      productRow.children('.product-line-price').each(function() {
-         $(this).fadeOut(fadeTime, function() { //EFECTOS FADE PARA CHETEARLO
+         $(this).fadeOut(fadeTime, function() { //EFECTOS FADE
              $(this).text(linePrice.toFixed(1) + " " + moneda);
              recalculateCart();
              $(this).fadeIn(fadeTime);
