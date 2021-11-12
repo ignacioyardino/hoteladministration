@@ -64,7 +64,7 @@
                             <span class="product-line-price text-right">` + precioArticuloLinea + " " + moneda + `</span>
                         </div>
                         <div class="remove-item pt-4">
-                            <button class="remove-product btn btn-danger ">eliminar</button>
+                            <button class="remove-product btn btn-danger">eliminar</button>
                         </div>
                     </div>`
          document.getElementById("itemList").innerHTML = htmlContentToAppend;
@@ -93,7 +93,7 @@
          cantidadComprados = $(this).children('.pass-quantity').children(".itemsComprados").val();
          productosCompradosSender += nombreArticulo + " " + costoUnitario + " unidades compradas: " + cantidadComprados + " ";
          //
-         existenElementos = true; // SI CAPTURO ALGUN ELEMENTO DE LA CALSE "ITEM", ES PORQUE EXISTEN ITEMS (EVIDENTEMENTE) ENTONCES "EXISTEN ELEMENTOS" = TRUE
+         existenElementos = true; // SI CAPTURO ALGUN ELEMENTO DE LA CALSE "ITEM", ES PORQUE EXISTEN ITEMS, ENTONCES "EXISTEN ELEMENTOS" = TRUE
      });
      //
      tipoEnvio = $("input[name='optradio']:checked").val(); //CALCULOS
@@ -143,7 +143,7 @@
      });
  }
 
- function metodoDepago(optionSelected) { //RESETEO LAS VARIABLES DE LSO INPUTS CUANDO CAMBIAS EL MODO DE PAGO
+ function metodoDepago(optionSelected) { //RESETEO LAS VARIABLES DE LOS INPUTS CUANDO CAMBIAS EL MODO DE PAGO
      if ($(optionSelected).val() == "credito") {
          $('#numeroDeCuenta').val("");
          $('#cedulaIdentidad').val("");
@@ -166,13 +166,13 @@
                      }
                  });
              } else {
-                 alert("debe completar datos de medio de pago");
+                 alert("Debe completar datos de medio de pago");
              }
          } else {
-             alert("debe completar la direccion");
+             alert("Debe completar la dirección");
          }
      } else {
-         alert("no tiene elementos en el carrito de compra");
+         alert("No tiene elementos en el carrito de compras");
      }
  }
  $(document).ready(function() {
