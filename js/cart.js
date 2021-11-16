@@ -41,7 +41,7 @@
      var htmlContentToAppend = "";
      for (var i = 0; i < articleList.length; i++) {
          var precioArticuloLinea = articleList[i].unitCost * articleList[i].count;
-         if (articleList[i].currency == "usd") { //PASO A PESOS CUALQUIER ELEMENTO QUE ESTE EN DOLARES
+         if (articleList[i].currency == "USD") { //PASO A PESOS CUALQUIER ELEMENTO QUE ESTE EN DOLARES
              articleList[i].unitCost = articleList[i].unitCost * cotizacion;
              articleList[i].currency = "UYU";
              precioArticuloLinea = articleList[i].unitCost;
@@ -184,7 +184,7 @@
      //
      $('.pass-quantity input').change(function() {
          updateQuantity(this); //LE PASO EL ELEMENTO QUE DISPARO EL EVENTO A LA FUNCION
-         if (($(this).val() == "") || ($(this).val() == "0")) { // SI PONES "" (VACIO) O PONES CANTIDAD EN CERO, ELIMINO EL ELEMENTO DE LA LISTA DE COMPRA
+         if (($(this).val() == "") || ($(this).val() <= "0")) { // SI PONES "" (VACIO) O PONES CANTIDAD EN CERO O MENOR, ELIMINO EL ELEMENTO DE LA LISTA DE COMPRA
              removeItem(this);
          }
      });
