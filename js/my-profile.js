@@ -84,6 +84,7 @@ function agregoListenners() {
   | || |  | |/ ___ | |_| | |___| |\  | |  __/| |___|  _ <|  _|  | || |___ 
  |___|_|  |_/_/   \_\____|_____|_| \_| |_|   |_____|_| \_|_|   |___|_____|                                                                   
 /////////////////////////////////*/
+
 function cargarImagenPerfil(event) {
     if (event.target.files.length > 0) {
         var src = URL.createObjectURL(event.target.files[0]);

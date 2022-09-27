@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+    <script src="js/consulta-usuario.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>eMercado - Todo lo que busques está aquí</title>
+    <!--  <link rel="icon" type="image/png" href="Login_v15/images/icons/favicon.ico" />  -->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Gestor de reservas</title>
+    <!-- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- 
+    UIkit CSS 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/css/uikit.min.css" />
+
+    UIkit JS 
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js"></script>
+    -->
+
+</head>
+
+<body>
+    <div id="contenedordelnav"></div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .form-reserva {
+            width: 700px;
+            background: rgb(248, 249, 250);
+            padding: 30px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+            color: black;
+        }
+        
+        .form-reserva h4 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        #coso,
+        .controlador {
+            width: 100%;
+            background: rgb(210, 230, 208);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            border: 1px solid grey;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 18px;
+        }
+        
+        .form-reserva .button {
+            width: 100%;
+            background: rgb(118, 161, 114);
+            border: none;
+            padding: 12px;
+            color: honeydew;
+            margin: 16px 0;
+            font-size: 16px;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        th,
+        td {
+            border: 1px solid grey;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 18px;
+            background: rgb(195, 242, 195);
+        }
+        
+        #data {
+            margin-bottom: 10px;
+        }
+        
+        #data input,
+        button {
+            padding: 10px;
+            width: 200px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            border: 1px solid grey;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+            font-size: 18px;
+            background: rgb(210, 230, 208);
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+
+                <section class="form-reserva">
+
+                    <h4>Gestor de reservas</h4>
+
+                    <h5>Guardar cómo: </h5>
+                    <label><input type="radio" name="estado" id="confirmada" value="confirmada"checked> Confirmada</label>
+                    <label><input type="radio" name="estado" id="en proceso" value="en proceso">Proceso</label>
+                    <label><input type="radio" name="estado" id="cancelada" value="cancelada"> Cancelada</label>
+
+
+                    <br><br>
+
+                    <h5>Nombre del titular:</h5>
+                    <input class="controlador" type="text" name="nombres" id="nombres" placeholder="Nombre del titular">
+                    <h5>Número de Documento:</h5>
+                    <input class="controlador" name="cedula" id="cedula" placeholder="Número de Documento">
+                    <h5>Teléfono:</h5>
+                    <input class="controlador" name="celular" id="celular" placeholder="Teléfono">
+                    <h5>Costo total:</h5>
+                    <input class="controlador col-sm-8 my-1" name="costo" id="costoTotal" placeholder="Costo total"> Moneda:
+                    <label><input type="radio" name="moneda" id="pesos" value="pesos"checked> Pesos</label>
+                    <label><input type="radio" name="moneda" id="dolares" value="dolares"> Dolares</label>
+
+                    <br>
+
+                    <div id="contenedorHabitacion" class="uk-grid-small" uk-grid>
+
+                        <div class="col-sm-4 my-1">
+                            <h5>Tipo de habitación:</h5>
+                            <div id="coso" class="uk-form-controls">
+                                <select class="uk-select" id="tipo-habitacion">
+                                    <option disabled selected>Tipo de habitación</option>
+                                    <option value="Single Estándar">Single Estándar</option>
+                                    <option value="Single Superior">Single Superior</option>
+                                    <option value="Doble Estándar">Doble Estándar</option>
+                                    <option value="Doble Superior">Doble Superior</option>
+                                    <option value="Triple Estándar">Triple Estándar</option>
+                                    <option value="Triple Superior">Triple Superior</option>
+                                    <option value="Cuadruple">Cuadruple</option>
+                                    <option value="Apto 3/p">Apto 3/p</option>
+                                    <option value="Apto 4/p">Apto 4/p</option>
+                                    <option value="Apto 5/p">Apto 5/p</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="data">
+
+                            <h5>Cantidad de Personas:</h5>
+
+                            <input type="number" id="tf-adultos" placeholder="Adultos">
+                            <input type="number" id="tf-menores" placeholder="Menores">
+
+                            <h5>Check In & Check Out:</h5>
+
+                            <input type="date" id="fecha-entrada" name="trip-start" value="2018-07-22" min="2022-03-01" max="2050-12-31">
+                            <input type="date" id="fecha-salida" name="trip-start" value="2018-07-22" min="2018-01-01" max="2050-12-31">
+                            <br><br><br>
+
+                            <button type="button" id="btn-agregar-habitacion">Agregar habitación</button>
+                            <!--  <button type="button" class="btn btn-success" id="btn-agregar-habitacion">Agregar habitación</button> -->
+
+
+                            <br>
+                            <hr><br>
+
+                            <table id="myTable">
+                                <thead>
+                                    <tr>
+                                        <th>Categoría</th>
+                                        <th>Adultos</th>
+                                        <th>Menores</th>
+                                        <th>Check in</th>
+                                        <th>Check out</th>
+                                        <th>Eliminar habitación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+
+                            </table>
+                            <br>
+                            <h5>Notas:</h5>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Comentarios" id="pedidoEspecial" style="height: 100px"></textarea>
+                            </div>
+
+                            <br>
+
+                            <button type="button" id="btn-aceptar">Guardar</button>
+                            <button type="button" id="btn-cancelar">Eliminar</button>
+
+                        </div>
+                        <div class="col"></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<footer class="text-muted bg-white">
+    <div class="container">
+        <p class="float-right">
+            <br>
+            <a href="#">Volver arriba</a>
+    </div>
+</footer>
+
+<div id="spinner-wrapper">
+    <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/init.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/crearReserva.js"></script>
+<script src="js/nav.js"></script>
+
+</body>
+
+</html>
